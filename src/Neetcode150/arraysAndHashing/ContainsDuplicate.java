@@ -1,5 +1,6 @@
 package Neetcode150.arraysAndHashing;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +17,12 @@ public class ContainsDuplicate {
         }
 
         return false;
+    }
+
+    //Solution using streams
+    public boolean containsDuplicate2(int[] nums) {
+        Set<Integer> numSet =  new HashSet<>();
+        return Arrays.stream(nums).anyMatch(i -> !numSet.add(i));
     }
 
     public static void main(String[] args) {

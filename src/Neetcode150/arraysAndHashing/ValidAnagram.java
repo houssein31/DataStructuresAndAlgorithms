@@ -1,47 +1,52 @@
 package Neetcode150.arraysAndHashing;
 
-import java.util.HashMap;
+import java.util.Arrays;
 
 public class ValidAnagram {
 
-    public static boolean isAnagram(String s, String t) {
+    //working with one combined string
+    public static boolean isAnagram(String st) {
 
-        if(s.length () != t.length ())
+        String[] wordArr = st.toLowerCase().split(" ");
+
+        String ogString1 = wordArr[0];
+        String ogString2 = wordArr[1];
+
+        char[] charArr1 = ogString1.toCharArray();
+        char[] charArr2 = ogString2.toCharArray();
+
+        Arrays.sort(charArr1);
+        Arrays.sort(charArr2);
+
+        if(Arrays.equals(charArr1, charArr2))
+            return true;
+        else
             return false;
 
-        HashMap<Character, Integer> smap = new HashMap<>();
-        HashMap<Character, Integer> tmap = new HashMap<>();
-
-        for(int i = 0 ; i < s.length() ; i++) {
-            if(smap.containsKey ( s.toLowerCase().charAt ( i ) )) {
-                int valueCounter = smap.get(s.charAt ( i ));
-                smap.put(s.charAt ( i ), valueCounter++);
-            } else {
-                smap.put ( s.charAt ( i ), 1 );
-            }
-        }
-
-        for(int i = 0 ; i < t.length() ; i++) {
-            if(tmap.containsKey ( t.charAt ( i ) )) {
-                int valueCounter = tmap.get(t.charAt ( i ));
-                tmap.put(t.charAt ( i ), valueCounter++);
-            } else {
-                tmap.put ( t.charAt ( i ), 1 );
-            }
-        }
-
-        return smap.equals ( tmap );
     }
-
+    //working with two strings
     public static boolean isAnagram2(String s, String t) {
-    return false;
+
+        char[] sArr = s.toLowerCase().toCharArray();
+        char[] tArr = t.toLowerCase().toCharArray();
+
+        Arrays.sort(sArr);
+        Arrays.sort(tArr);
+
+        if(Arrays.equals(sArr, tArr))
+            return true;
+        else
+            return false;
+
     }
 
     public static void main(String[] args) {
         String s = "anagram";
         String t = "nagaram";
 
-        System.out.println (isAnagram ( s, t ));
+        String combinedSting = "Anagram Nagaram";
+
+        System.out.println (isAnagram ( combinedSting ));
     }
 }
 

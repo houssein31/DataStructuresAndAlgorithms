@@ -4,13 +4,12 @@ public class ReverseLinkedList {
     public static ListNode reverseList(ListNode head) {
 
         ListNode prev = null;
-        ListNode current = head;
 
-        while (current != null) {
-            ListNode nextNode = current.next;
-            current.next = prev;
-            prev = current;
-            current = nextNode;
+        while(head != null) {
+            ListNode nextNode = head.next;
+            head.next = prev;
+            prev = head;
+            head = nextNode;
         }
 
         return prev;
@@ -32,5 +31,6 @@ public class ReverseLinkedList {
 
         System.out.println (reverseList ( list1 ));
     }
+
 }
 
