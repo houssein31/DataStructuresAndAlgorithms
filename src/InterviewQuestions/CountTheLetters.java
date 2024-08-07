@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 //     Count the letters
 //
@@ -52,6 +53,28 @@ public class CountTheLetters {
     public static String solve(int N, String[] words) {
 
         String result= "";
+        int maxChar = 0;
+
+        for(String word : words) {
+
+            ArrayList<Character> tempArr = new ArrayList<> ();
+
+            for(int i = 0; i<word.length(); i++) {
+
+                if(tempArr.contains (word.charAt ( i ))){
+                    tempArr.remove ( (Character)word.charAt ( i ) );
+                } else {
+                    tempArr.add ( word.charAt ( i ) );
+                }
+            }
+
+            if(tempArr.size () > maxChar) {
+                maxChar = tempArr.size ();
+                result = word;
+            }
+
+
+        }
 
         return result;
     }
