@@ -6,43 +6,27 @@ public class EvaluatePolishNotation {
 
     public static int evalRPN(String[] tokens) {
 
-        Stack<Integer> charStack = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
 
-        for (String token : tokens) {
-
-            if(isOperator(token)) {
-                int operand2 = charStack.pop();
-                int operand1 = charStack.pop();
-                int result = performOperation(token, operand1, operand2);
-                charStack.push(result);
+        for (String c : tokens) {
+            if (c.equals("+")) {
+                stack.push(stack.pop() + stack.pop());
+            } else if (c.equals("-")) {
+                int second = stack.pop();
+                int first = stack.pop();
+                stack.push(first - second);
+            } else if (c.equals("*")) {
+                stack.push(stack.pop() * stack.pop());
+            } else if (c.equals("/")) {
+                int second = stack.pop();
+                int first = stack.pop();
+                stack.push(first / second);
             } else {
-                charStack.push(Integer.parseInt(token));
+                stack.push(Integer.parseInt(c));
             }
         }
 
-        return charStack.pop();
-    }
-
-    private static int performOperation(String operator, int operand1, int operand2) {
-        switch (operator) {
-            case "+":
-                return operand1 + operand2;
-            case "-":
-                return operand1 - operand2;
-            case "*":
-                return operand1 * operand2;
-            case "/":
-                if(operand2 != 0)
-                    return operand1 / operand2;
-                else
-                    throw new ArithmeticException("Cannot divide by zero");
-            default:
-                throw new IllegalArgumentException("Invalid Operator");
-        }
-    }
-
-    private static boolean isOperator(String token) {
-        return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/");
+        return stack.peek();
     }
 
     public static void main(String[] args) {
@@ -50,6 +34,7 @@ public class EvaluatePolishNotation {
         String tokens1[] ={"4","13","5","/","+"};  // Returns 6
         String tokens2[] ={"2","1","+","3","*"};  // Returns 9
 
+        System.out.println(evalRPN(tokens1));
         System.out.println(evalRPN(tokens2));
     }
 }
