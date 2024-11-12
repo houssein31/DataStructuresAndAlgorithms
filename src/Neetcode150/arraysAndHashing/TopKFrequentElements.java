@@ -5,9 +5,33 @@ import java.util.stream.Collectors;
 
 public class TopKFrequentElements {
 
+    // USING PRIORITY QUEUE ( MAX HEAP )
+    public static int[] topKFrequent(int[] nums, int k) {
+
+        Map<Integer, Integer> occur = new HashMap<>();
+
+        for(int num : nums) {
+            occur.put(num, occur.getOrDefault(num, 0) + 1);
+        }
+
+        PriorityQueue<Map.Entry<Integer, Integer>> maxHeap = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
+
+        for(Map.Entry entry : occur.entrySet()) {
+            maxHeap.add(entry);
+        }
+
+        int[] answer = new int[k];
+
+        for(int i = 0; i<k; i++) {
+            answer[i] = maxHeap.poll().getKey();
+        }
+
+        return answer;
+    }
+
 
     //USING BUCKETING
-    public static int[] topKFrequent(int[] nums, int k) {
+    public static int[] topKFrequent1(int[] nums, int k) {
 
         Map<Integer, Integer> freqMap = new HashMap<>();
 
@@ -28,7 +52,6 @@ public class TopKFrequentElements {
 
         return result.stream().mapToInt(i -> i).toArray();
     }
-
 
 
     // USING STREAMS

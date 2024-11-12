@@ -1,7 +1,10 @@
 package Neetcode150.binarySearch;
 
+import java.util.Arrays;
+
 public class FindMinimumInRotatedSortedArray {
 
+    // USING BINARY SEARCH
     public static int findMin(int[] nums) {
 
         int left = 0;
@@ -18,6 +21,11 @@ public class FindMinimumInRotatedSortedArray {
         }
 
         return nums[right];
+    }
+
+    // USING STREAMS
+    public static int findMin2(int[] nums) {
+        return Arrays.stream(nums).min().orElseThrow(() -> new IllegalArgumentException("Array is empty"));
     }
 
     public static void main(String[] args) {

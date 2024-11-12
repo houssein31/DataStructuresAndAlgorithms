@@ -3,6 +3,7 @@ package Neetcode150.arraysAndHashing;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ContainsDuplicate {
 
@@ -20,9 +21,17 @@ public class ContainsDuplicate {
     }
 
     //Solution using streams
-    public boolean containsDuplicate2(int[] nums) {
+    public static boolean containsDuplicate2(int[] nums) {
         Set<Integer> numSet =  new HashSet<>();
         return Arrays.stream(nums).anyMatch(i -> !numSet.add(i));
+    }
+
+    //Different Solution using Streams
+    public static  boolean containsDuplicate3(int[] nums) {
+
+        Set<Integer> uniqueE = Arrays.stream(nums).boxed().collect(Collectors.toSet());
+
+        return uniqueE.size() < nums.length;
     }
 
     public static void main(String[] args) {
