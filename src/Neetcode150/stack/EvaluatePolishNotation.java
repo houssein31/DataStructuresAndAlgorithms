@@ -31,8 +31,8 @@ public class EvaluatePolishNotation {
 
     public static void main(String[] args) {
 
-        String tokens1[] ={"4","13","5","/","+"};  // Returns 6
-        String tokens2[] ={"2","1","+","3","*"};  // Returns 9
+        String tokens1[] = {"4","13","5","/","+"};  // Returns 6
+        String tokens2[] = {"2","1","+","3","*"};  // Returns 9
 
         System.out.println(evalRPN(tokens1));
         System.out.println(evalRPN(tokens2));

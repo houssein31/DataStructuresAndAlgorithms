@@ -30,6 +30,16 @@ public class BinarySearch {
         return index >= 0 ? index : -1; // returns -1 if target is not found
     }
 
+    // USING STREAM
+    public static int search3(int[] nums, int target) {
+        return Arrays.stream(nums)
+                .boxed()
+                .filter(n -> n == target)
+                .findFirst()
+                .map(n -> Arrays.binarySearch(nums, n)) // Using binarySearch to get the index
+                .orElse(-1); // Return -1 if target not found
+    }
+
 
     public static void main(String[] args) {
         int[] nums1 = {-1, 0, 3, 5, 9, 12};
