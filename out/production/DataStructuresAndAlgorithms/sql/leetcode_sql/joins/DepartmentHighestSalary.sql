@@ -63,9 +63,14 @@
 -- +------------+----------+--------+
 -- Explanation: Max and Jim both have the highest salary in the IT department and Henry has the highest salary in the Sales department.
 
-SELECT Department.name AS Department, Employee.name AS Employee, Employee.salary AS Salary
-FROM Employee
-JOIN Department ON Employee.departmentId = Department.id
+SELECT
+    Department.name AS Department,
+    Employee.name AS Employee,
+    Employee.salary AS Salary
+FROM
+    Employee
+JOIN
+    Department ON Employee.departmentId = Department.id
 WHERE (Employee.departmentId, Employee.salary) IN (
     SELECT departmentId, MAX(salary)
     FROM Employee
