@@ -15,6 +15,21 @@ public class ReverseLinkedList {
         return prev;
     }
 
+    public ListNode reverseRecursive(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode newHead = reverseRecursive(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return newHead;
+    }
+
+
+
+
     public static void main(String[] args) {
         ListNode list1 = new ListNode (1, new ListNode (2, new ListNode (3, new ListNode (4, new ListNode (5)))));
 

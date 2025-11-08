@@ -1,8 +1,5 @@
 package javaPrep;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class Streams {
     public static void main(String[] args) {
 
@@ -24,18 +21,25 @@ public class Streams {
 //        System.out.println(count);
 // -------------------------------------------------------------------------
 //        Practice Area
-
-        // FIND LONGEST WORD
-        List<String> words = Arrays.asList("apple", "banana", "cherry", "blueberry");
-
-        String longest = words.stream().max((w1, w2) -> Integer.compare(w1.length(), w2.length())).orElse(null);
-
-        System.out.println(longest);
-
+//
+//        // FIND LONGEST WORD
+//        List<String> words = Arrays.asList("apple", "banana", "cherry", "blueberry");
+//
+//        String longest = words.stream()
+//                .sorted((a, b) -> Integer.compare(b.length(), a.length()))
+//                .findFirst()
+//                .orElse(null);
+//
+//        OR
+//
+//        String longest = words.stream().max((w1, w2) -> Integer.compare(w1.length(), w2.length())).orElse(null);
+//
+//        System.out.println(longest);
 // -------------------------------------------------------------------------
 //        CONVERT TO UPPERCASE
-//
+///
 //        String[] words = {"apple", "banana", "cherry"};
+//
 //
 //        String[] answer = Arrays.stream(words).map(word -> word.toUpperCase()).toArray(String[]::new);
 //
@@ -178,5 +182,9 @@ public class Streams {
 //        List<Integer> flattened = listOfLists.stream().flatMap(innerL -> innerL.stream()).collect(Collectors.toList());
 //
 //        System.out.println(flattened);
+//
+
+
     }
+
 }
