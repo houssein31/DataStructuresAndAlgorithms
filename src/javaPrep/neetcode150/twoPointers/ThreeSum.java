@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class ThreeSome {
+public class ThreeSum {
 
     public static List<List<Integer>> threeSum(int[] nums) {
 

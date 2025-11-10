@@ -1,4 +1,4 @@
-package javaPrep.implementDsuFromScratch;
+package javaPrep.implementDSFromScratch;
 
 public class MyHashMap<K, V> {
     private static class Entry<K, V> {

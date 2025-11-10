@@ -183,6 +183,143 @@ public class Streams {
 //
 //        System.out.println(flattened);
 //
+//
+//        ---------------------------------------------------------------
+//        |  PART 2
+//        ---------------------------------------------------------------
+//
+//        Given a List<String> names, use streams to count how many names start with a, e, i, o, u (case-insensitive).
+//
+//        List<String> vStrings = Arrays.asList("apple", "Cake", "Orange", "banana");
+//
+//        int vCount = (int)vStrings.stream()
+//                .map(s -> s.toLowerCase())
+//                .filter(s -> s.charAt(0) == 'a' || s.charAt(0) == 'e' || s.charAt(0) == 'i' || s.charAt(0) == 'o' || s.charAt(0) == 'u')
+//                .count();
+//
+//        System.out.println(vCount);
+//
+//        ---------------------------------------------------------------
+//
+//        Convert a list of integers to a list of their squares, but remove duplicates
+//
+//        Input: List<Integer> nums
+//        Output: List of squared values, unique, sorted ascending.
+//
+//        List<Integer> nums = Arrays.asList(2, 3, 4, 5, 6, 7, 7, 8, 8, 9);
+//
+//        List<Integer> newNums = nums.stream()
+//                .distinct()
+//                .map(n -> (int)Math.pow(n, 2))
+//                .sorted()
+//                .collect(Collectors.toList());
+//
+//        System.out.println(newNums);
+//
+//        ---------------------------------------------------------------
+//
+//
+//        Group a list of people by age
+//
+//        class Person {
+//            String name;
+//            int age;
+//
+//            Person(String name, int age) {
+//                this.name = name;
+//                this.age = age;
+//            }
+//        }
+//
+//        Person p1 = new Person("George", 22);
+//        Person p2 = new Person("Max", 22);
+//        Person p3 = new Person("Julie", 21);
+//        Person p4 = new Person("Lucie", 21);
+//        Person p5 = new Person("Marc", 24);
+//
+//        List<Person> personList = Arrays.asList(p1, p2, p3, p4, p5);
+//
+//        Map<Integer, List<Person>> ageMap = personList.stream()
+//                .collect(Collectors.groupingBy(
+//                        person -> person.age));
+//
+//        System.out.println(ageMap);
+//
+//
+//        ---------------------------------------------------------------
+//
+//        Given a list of transactions, compute the total amount only for “SUCCESS”
+//
+//        Return the sum of all amounts where status.equals("SUCCESS").
+//
+//        class Transaction {
+//            String status;
+//            double amount;
+//
+//            Transaction(String status, double amount) {
+//                this.status = status;
+//                this.amount = amount;
+//            }
+//
+//        }
+//
+//        Transaction t1 = new Transaction("SUCCESS", 1.11);
+//        Transaction t2 = new Transaction("FAIL", 3.41);
+//        Transaction t3 = new Transaction("FAIL", 7.16);
+//        Transaction t4 = new Transaction("SUCCESS", 2.22);
+//        Transaction t5 = new Transaction("SUCCESS", 3.33);
+//
+//        List<Transaction> transactionList = Arrays.asList(t1, t2, t3, t4, t5);
+//
+//        double sum = transactionList.stream()
+//                .filter(t -> t.status.equals("SUCCESS"))
+//                .mapToDouble(t -> t.amount)
+//                .sum();
+//
+//        System.out.println(sum);
+//
+//        ---------------------------------------------------------------
+//
+//        Find the longest string in a list
+//
+//        From a List<String> words, return the longest word using streams.
+//
+//        Edge case: return empty Optional if list is empty.
+//
+//        List<String> stringList = Arrays .asList("Hello", "Oak", "Loop", "School", "Elementary");
+//
+//        Optional<String> longest = stringList.stream()
+//                .max(Comparator.comparing(s -> s.length()));
+//
+//        ---------------------------------------------------------------
+//
+//        Create a frequency map of characters in a string
+//
+//        Input: "banana"
+//
+//        Output:
+//        {b=1, a=3, n=2}
+//        Use Collectors.groupingBy + Collectors.counting.
+//
+//        String ch = "chocolate";
+//
+//        Map<Character, Integer> fMap = ch.chars()
+//                .mapToObj(c -> (char)c)
+//                .collect(Collectors.groupingBy(
+//                        c -> c,
+//                        Collectors.collectingAndThen(
+//                                Collectors.counting(),
+//                                Long::intValue
+//                        )
+//                ));
+//
+//        Map<Character, Long> fMap2 =
+//                ch.chars()
+//                        .mapToObj(c -> (char) c)
+//                        .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+//
+//
+//        System.out.println(fMap);
 
 
     }

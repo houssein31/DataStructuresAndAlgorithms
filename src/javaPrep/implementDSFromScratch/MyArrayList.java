@@ -1,4 +1,4 @@
-package javaPrep.implementDsuFromScratch;
+package javaPrep.implementDSFromScratch;
 
 public class MyArrayList<T> {
     private Object[] data;

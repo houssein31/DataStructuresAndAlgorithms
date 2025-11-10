@@ -1,4 +1,4 @@
-package javaPrep.implementDsuFromScratch;
+package javaPrep.implementDSFromScratch;
 
 public class MemoryDemo {
     public static void main(String[] args) {

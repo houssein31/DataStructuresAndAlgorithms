@@ -51,4 +51,4 @@ WHERE t.temperature > (
     SELECT y.temperature
     FROM Weather y
     WHERE t.recordDate = DATE_ADD(y.recordDate, INTERVAL 1 DAY)
-);
+);D
